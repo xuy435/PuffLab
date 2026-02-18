@@ -311,23 +311,46 @@ if (container) {
 
   let index = 0;
 
-  function spawnBubble() {
-    if (index >= lines.length) return;
+  function spawnBubble() { if (index >= lines.length) return;
 
-    const bubble = document.createElement("div");
-    bubble.className = "word-bubble";
-    bubble.textContent = lines[index];
+  const text = lines[index];
 
-    bubble.style.left = Math.random() * 80 + 10 + "vw";
+  const bubble = document.createElement("div");
+  bubble.className = "word-bubble";
+  bubble.textContent = text;
 
-    container.appendChild(bubble);
+  bubble.style.left = Math.random() * 80 + 10 + "vw";
 
-    setTimeout(() => {
-      bubble.remove();
-    }, 6000);
+  // ✅ Easter egg：只有 "dark" 这颗 bubble 支持双击变黑
+  if (text.trim().toLowerCase().includes("dark")) {
+    bubble.style.pointerEvents = "auto";  // 允许双击
+    bubble.style.cursor = "pointer";      // 给个暗示（可删）
 
-    index++;
-    setTimeout(spawnBubble, 900);
+    bubble.addEventListener("dblclick", (e) => {
+      e.stopPropagation();
+
+      const darkLayer = document.getElementById("dark-layer");
+      if (!darkLayer) return;
+
+      // 永久变暗：深蓝 + 不再恢复
+      darkLayer.style.background = "#1e3a8a";
+      darkLayer.style.opacity = "1";
+      darkLayer.style.transition = "opacity 0.6s ease";
+      darkLayer.style.zIndex = 0;
+
+      // 可选：让字也“锁死”一下（提示已触发）
+      bubble.style.opacity = "0.95";
+    });
+  }
+
+  container.appendChild(bubble);
+
+  setTimeout(() => {
+    bubble.remove();
+  }, 6000);
+
+  index++;
+  setTimeout(spawnBubble, 900);
   }
 
   // 延迟 1 秒开始
