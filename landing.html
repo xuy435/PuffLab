@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="landing.css">
+
+    <link rel="icon" type="image/png" href="puffer-learning.png">
+
+
+    <title>Puff Lab</title>
+</head>
+
+
+<body>
+  <div id="white-transition"></div>
+
+
+  <div id="dark-layer"></div>
+
+
+    <!--audio: backgrond music-->
+<audio id="bgm" loop>
+  <source src="landing-music.mp3" type="audio/mpeg">
+</audio>
+
+
+
+
+
+<!--Header-->
+<h1 class="title">
+    Puff L<span class="highlight">a</span>b
+</h1>
+
+<h2>
+    Catch us all 
+</h2>
+
+
+
+<!-- fishes -->
+<div class="puffer">
+  <img src="puffer-orignal.png" class="puffer-img base" alt="pufferfish">
+  <img src="puffer-puffed.png" class="puffer-img organs" alt="pufferfish organs">
+</div>
+
+<div class="puffer fish-1">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-2">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-3">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-4">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-5">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-6">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-7">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-8">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-9">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-10">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-11">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+<div class="puffer fish-12">
+  <img src="puffer-orignal.png" class="puffer-img base">
+  <img src="puffer-puffed.png" class="puffer-img organs">
+</div>
+
+
+
+  <!--mama fish-->
+
+  <div class="puffer mama">
+  <img src="puffer-mama.png" class="puffer-img base">
+  <img src="puffer-mama.png" class="puffer-img organs">
+</div>
+<div id="mama-message" class="hidden mama-message">
+  You caught a mama fish! </div>
+
+
+  <!--learning fish-->
+  <div class="puffer learning">
+  <img src="puffer-learning.png" class="puffer-img base">
+  <img src="puffer-learning.png" class="puffer-img organs">
+</div>
+
+
+
+
+<!--small creatures background-->
+<div class="bg-creatures">
+
+  <!-- Group 1 
+  <div class="bg-wrapper g1-1"><img src="crab-03.png"></div>
+  <div class="bg-wrapper g1-2"><img src="fishes-04.png"></div>
+  <div class="bg-wrapper g1-3"><img src="green-fish-02.png"></div>
+  <div class="bg-wrapper g1-4"><img src="orange-fish.png"></div>
+
+  <!-- Group 2 
+  <div class="bg-wrapper g2-1"><img src="crab-03.png"></div>
+  <div class="bg-wrapper g2-2"><img src="fishes-04.png"></div>
+  <div class="bg-wrapper g2-3"><img src="green-fish-02.png"></div>
+  <div class="bg-wrapper g2-4"><img src="orange-fish.png"></div>
+
+</div>
+-->
+
+
+
+<!-- bubbles -->
+ <div class="bubbles">
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+</div>
+
+
+
+
+ <!--Tap for music-->
+<div class="tap-for-music">tap here for music 🌊</div>
+
+<!--Double click on one of us
+<div class="double-click">catch them all! </div>-->
+
+<!--@yue xu-->
+<div class="yuexu"> xuy435@newschool.edu </div>
+
+<!-- about page -->
+
+
+<!--music player-->
+<script>
+  const bgm = document.getElementById("bgm");
+  const hint = document.querySelector(".tap-for-music");
+
+  let isPlaying = false;
+
+  hint.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  if (!isPlaying) {
+    bgm.play();
+    isPlaying = true;
+    hint.textContent = "tap here to mute 🔇";
+  } else {
+    bgm.pause();
+    isPlaying = false;
+    hint.textContent = "tap here for music 🌊";
+  }
+});
+  ;
+</script>
+
+
+<button type="button" class="about">About</button>
+
+
+<!--about modal-->
+<div id="about-modal" class="modal hidden">
+  <div class="modal-content about-box">
+
+    <button type="button" class="close">×</button>
+
+    <!-- 漂浮层 -->
+    <div class="about-decor">
+      <img src="crab-03.png" class="mini sea-1">
+      <img src="fishes-04.png" class="mini sea-2">
+      <img src="green-fish-02.png" class="mini sea-3">
+      <img src="orange-fish.png" class="mini sea-4">
+
+      <div class="about-bubbles">
+        
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <h2><span class="highlight">About Puff Lab</span></h2>
+    <p>
+      Puff Anatomy is an interactive exploration of pufferfish anatomy presented through non-linear text.
+<br>
+      Instead of reading information in a fixed order, users click, discover, and experience each organ individually. Text appears dynamically, falling into the screen like drifting objects in water.
+<br>
+      This project transforms biological information into a playful interface. It invites curiosity rather than instruction, suggesting that learning can be exploratory, intuitive, and slightly unpredictable — just like the ocean itself.
+    </p>
+<p>By: Yue Xu</p>
+
+  </div>
+</div>
+
+
+<!--word bubbles-->
+<div class="hint-bubbles"></div>
+
+
+
+<script>
+  const aboutBtn = document.querySelector(".about");
+  const modal = document.getElementById("about-modal");
+  const closeBtn = document.querySelector("#about-modal .close");
+
+  // ✅ 捕获阶段拦截：抢在任何 click 逻辑之前执行
+  aboutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation(); // ✅ 直接终止后续所有同类监听
+    modal.classList.remove("hidden");
+    console.log("ABOUT OPEN"); // 用来验证：你点到了 about
+  }, true);
+
+  closeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    modal.classList.add("hidden");
+  }, true);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.add("hidden");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") modal.classList.add("hidden");
+  });
+</script>
+
+
+<script src="landing.js"></script>
+
+
+<!--finish game modal-->
+<div id="result-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>🎉 Congratulations!</h2>
+    <p id="final-time"></p>
+    <p class="share-text">
+    </p>
+
+<button class="try-btn" onclick="window.location.reload();">
+  Try Again
+</button>
+
+</div>
+</div>
+
+
+</div>
+
+
+</body>
+</html>
